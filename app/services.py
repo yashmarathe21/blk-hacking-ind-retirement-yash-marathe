@@ -60,16 +60,7 @@ def _apply_p_periods(
 def _check_k_periods(
     transaction_date: datetime, evaluation_periods: List[PeriodK]
 ) -> bool:
-    """Check if transaction falls within any k evaluation period.
-
-    k Period Rules (Evaluation Grouping):
-    - For each k period: sum up remnant of all transactions whose dates fall in range (inclusive)
-    - A transaction can belong to multiple k periods
-    - Each k period calculates its sum independently
-    - Any k range is within a calendar year (not spanning multiple years)
-
-    Returns True if transaction falls in any k period, False otherwise.
-    """
+    """Check if transaction falls within any k evaluation period."""
     for period in evaluation_periods:
         if period.start <= transaction_date <= period.end:
             return True
@@ -223,10 +214,7 @@ def calculate_tax(income: float) -> float:
 
 
 def get_returns(amount, years, rate, inflation):
-    """Calculate investment returns with compound interest and inflation adjustment.
-
-    Note: Inflation is expected in percentage format (e.g., 5.5 for 5.5%) and will be converted to decimal.
-    """
+    """Calculate investment returns with compound interest and inflation adjustment."""
     n = 1
 
     nominal_final = amount * ((1 + rate / n) ** (n * years))
@@ -238,10 +226,7 @@ def get_returns(amount, years, rate, inflation):
 
 
 def _validate_enriched_transactions(enriched: list[dict]) -> list[dict]:
-    """Validate enriched transactions for negative amounts and duplicates.
-
-    Returns only valid transactions.
-    """
+    """Validate enriched transactions for negative amounts and duplicates."""
     seen = set()
     valid_enriched = []
 
