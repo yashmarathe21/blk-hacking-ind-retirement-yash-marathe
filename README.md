@@ -91,6 +91,22 @@ The API will be available at `http://localhost:5477`
 
 ### Docker Setup
 
+#### Option 1: Pull from Docker Hub (Recommended)
+
+1. Pull the pre-built image:
+
+```bash
+docker pull yashmarathe21/blk-hacking-ind-retirement:latest
+```
+
+2. Run the container:
+
+```bash
+docker run -p 5477:5477 yashmarathe21/blk-hacking-ind-retirement:latest
+```
+
+#### Option 2: Build Locally
+
 1. Build the Docker image:
 
 ```bash
