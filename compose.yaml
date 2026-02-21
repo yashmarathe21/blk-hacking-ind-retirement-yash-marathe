@@ -1,0 +1,9 @@
+services:
+  retirement-api:
+    build: .
+    ports:
+      - "5477:5477"
+    deploy:
+      resources:
+        limits:
+          memory: 1G
